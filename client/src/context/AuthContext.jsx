@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
 
     const fetchProfile = async () => {
         try {
-            const res = await axios.get('http://localhost:8000/api/profile');
+            const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/profile`);
             setUser(res.data);
         } catch (error) {
             console.error('Error fetching profile', error);
@@ -34,12 +34,12 @@ export const AuthProvider = ({ children }) => {
     };
 
     const login = async (email, password) => {
-        const res = await axios.post('http://localhost:8000/api/login', { email, password });
+        const res = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/login`, { email, password });
         setToken(res.data.access_token);
     };
 
     const register = async (name, email, password) => {
-        const res = await axios.post('http://localhost:8000/api/register', { name, email, password });
+        const res = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/register`, { name, email, password });
         setToken(res.data.access_token);
     };
 

@@ -30,7 +30,7 @@ export default function Profile() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post('http://localhost:8000/api/profile', {
+            await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/profile`, {
                 ...formData,
                 age: formData.age ? parseInt(formData.age) : null,
                 income: formData.income ? parseInt(formData.income) : null,

@@ -16,7 +16,7 @@ export default function Chatbot({ close }) {
         setLoading(true);
 
         try {
-            const res = await axios.post('http://localhost:8000/api/chat', { question: userMsg });
+            const res = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/chat`, { question: userMsg });
             setMessages(prev => [...prev, { sender: 'bot', text: res.data.answer }]);
         } catch (err) {
             setMessages(prev => [...prev, { sender: 'bot', text: "Sorry, I am having trouble connecting to the server." }]);

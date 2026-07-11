@@ -15,7 +15,7 @@ export default function Dashboard() {
         if (!user) return;
         const fetchSchemes = async () => {
             try {
-                const res = await axios.post('http://localhost:8000/api/recommend');
+                const res = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/recommend`);
                 setSchemes(res.data);
             } catch (err) {
                 console.error(err);

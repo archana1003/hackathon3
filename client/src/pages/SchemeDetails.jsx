@@ -11,7 +11,7 @@ export default function SchemeDetails() {
     useEffect(() => {
         // Since we don't have a single scheme endpoint yet, we'll fetch all and filter
         // In a real app, you'd add a GET /api/schemes/:id endpoint
-        axios.post('http://localhost:8000/api/recommend', {})
+        axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:8000'}/api/recommend`, {})
             .then((res) => {
                 const found = res.data.find(s => s.id === parseInt(id));
                 setScheme(found);
