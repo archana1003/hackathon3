@@ -7,9 +7,9 @@ class SchemeBase(BaseModel):
     eligibility: str
     benefits: str
     documents: str
-    state: str
+    state: Optional[str] = None
     category: str
-    officialLink: str
+    officialLink: Optional[str] = None
 
 class SchemeOut(SchemeBase):
     id: int

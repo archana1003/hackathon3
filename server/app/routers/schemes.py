@@ -31,7 +31,8 @@ def recommend_schemes(current_user: User = Depends(get_current_user), db: Sessio
     recommended = []
     for s in schemes:
         # Example rule: if state matches or is 'All'
-        if s.state.lower() == 'all' or (profile.state and profile.state.lower() in s.state.lower()):
+        state = s.state or 'all'
+        if state.lower() == 'all' or (profile.state and profile.state.lower() in state.lower()):
             recommended.append(s)
             
     return recommended

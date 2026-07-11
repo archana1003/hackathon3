@@ -37,6 +37,10 @@ Context:
     response = llm.invoke(messages)
     answer = response.content
     
+    # Langchain might return a list of text blocks for some models
+    if isinstance(answer, list):
+        answer = answer[0].get("text", str(answer)) if isinstance(answer[0], dict) else str(answer)
+        
     # Save chat history
     history = ChatHistory(userId=current_user.id, question=chat.question, answer=answer)
     db.add(history)
