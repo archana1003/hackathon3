@@ -13,6 +13,13 @@ from app.routers import auth, schemes, chatbot
 # Create DB tables
 Base.metadata.create_all(bind=engine)
 
+# Force Vector DB generation if empty
+try:
+    import force_chroma_seed
+    force_chroma_seed.run()
+except Exception as e:
+    print("Warning: Chroma seed failed:", e)
+
 app = FastAPI(title="JanSeva AI API")
 
 app.add_middleware(
