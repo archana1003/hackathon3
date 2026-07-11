@@ -1,0 +1,12 @@
+fastapi==0.115.11
+uvicorn==0.34.0
+sqlalchemy==2.0.38
+pydantic==2.10.6
+pydantic-settings==2.8.0
+langchain==0.3.19
+langchain-core==0.3.37
+langchain-google-genai==2.0.10
+chromadb==0.6.3
+python-dotenv==1.0.1
+pandas==3.0.3
+sqlite-vec==0.1.6
