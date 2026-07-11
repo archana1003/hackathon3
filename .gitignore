@@ -9,9 +9,7 @@ __pycache__/
 .env.local
 
 # Databases
-*.db
-*.sqlite3
-server/chroma_db/
+# Removed so they push to GitHub for Render
 
 # Build artifacts
 client/dist/
